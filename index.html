@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Pictures/icon-estate_agency.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <title>FLATSFY</title>
+</head>
+<body>
+    <header>
+        <nav class="custom_navigation">
+            <ul>
+                <li><img src="Pictures/Logo.png" alt="Logo" style="height: 70px;"></li>
+                <li><form action="">
+                    <input list="location" name="location" placeholder="Вибрати місто">
+                    <datalist id="location">
+                        <option value="Київ">
+                        <option value="Львів">
+                        <option value="Одеса">
+                        <option value="Вінниця">
+                        <option value="Харків">
+                        <option value="Чернігів">
+                    </datalist>
+                </form></li>
+                <li><a href="index.html">ГОЛОВНА</a></li>
+                <li><a href="rent.html">ОРЕНДА</a></li>
+                <li><a href="sale.html">ПРОДАЖ</a></li>
+                <li><a href="new_buildings.html">НОВОБУДОВИ</a></li>
+                <li><a href="cabinet.html">МІЙ FLATSFY</a></li>
+            </ul>
+            <button class="toggle-button">Menu</button>
+        </nav>
+    </header>
+    <main>
+        <section class="container">
+            <div class="box new-buildings">
+                <h2>Новобудови</h2>
+                <button><a href="new_buildings.html">Список</a></button>
+            </div>
+            <div class="box sales">
+                <h2>Продаж</h2>
+                <button><a href="sale.html">Обрати</a></button>
+            </div>
+            <div class="box rental">
+                <h2>Оренда</h2>
+                <button><a href="rent.html">Обрати</a></button>
+            </div>
+            <div class="box property-stats">
+                <h2>Характеристика продажу нерухомості</h2>
+                <button><a href="statictic.html">Дивитись статистику</a></button>
+            </div>
+        </section>
+        <section class="real-estate-news">
+            <h2 style="color:black; font-weight: bold;">Новини нерухомості</h2>
+            <div class="news-buttons">
+                <button onclick="filterNews('Акції')">Акції</button>
+                <button onclick="filterNews('Новини нерухомості')">Новини нерухомості</button>
+            </div>
+            <div class="news-grid">
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=15079&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/64723.jpg" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 3.10 по 31.10</p>
+                        <h3 class="news-title">Апарт-комплекс Standard One Terminal</h3>
+                        <p class="news-text">Акційне розтермінування до 22 місяців на апартаменти, перший внесок від 20%</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=15035&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/74052.jpg" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 30.09 по 31.10</p>
+                        <h3 class="news-title">Клубний дім OLEGIV Podil</h3>
+                        <p class="news-text">Розтермінування  до 4 років на квартири  з першим внеском від 20%</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=15068&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/56817.jpg" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 3.10 по 15.10</p>
+                        <h3 class="news-title">ЖК Лук'янівський каскад</h3>
+                        <p class="news-text">Акційне розтермінування до 7 років на квартири, перший внесок від 25%</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=15075&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/67557.jpg.webp" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 3.10 по 31.10</p>
+                        <h3 class="news-title">ЖК Standard One Obolon</h3>
+                        <p class="news-text">Знижка до 7% на квартиру місяця та техніка у подарунок</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=14925&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/78841.jpg.webp" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 13.09 по 31.12</p>
+                        <h3 class="news-title">Русанівська Гавань</h3>
+                        <p class="news-text">Акційне розтермінування до 5 років з першим внеском від 10% на квартири у будинках № 13–17 та  27</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https/lun.ua/v2/go?real_action_id=15005&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/71819.jpg.webp" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 25.09 по 20.10</p>
+                        <h3 class="news-title">ЖК Orange City</h3>
+                        <p class="news-text">Фіксація ціни на  квартири у гривні! Кількість обмежена - всього 4 квартири!</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=15093&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/65874.jpg.webp" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 3.10 по 31.10</p>
+                        <h3 class="news-title">ЖК Нова Англія</h3>
+                        <p class="news-text">Знижка до 24% на квартири для ВПО</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=14890&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/70549.jpg.webp" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 5.09 по 31.10</p>
+                        <h3 class="news-title">ЖК Montreal House</h3>
+                        <p class="news-text">WOW розтермінування на 60 місяців з першим внеском від 20% на 2-к та 3-к  квартири</p>
+                    </div>
+                </div>
+                <div class="news-block" onclick="window.open('https:/lun.ua/v2/go?real_action_id=14776&event_category=&placement=action_list')">
+                    <img src="https://img.lunstatic.net/building-108x121/56858.jpg.webp" alt="News Image">
+                    <div class="news-content">
+                        <p class="news-date">з 19.08 по 15.10</p>
+                        <h3 class="news-title">ЖК CITY HUB</h3>
+                        <p class="news-text">Акційна знижка 5% на готові квартири у будинку №1</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="extra-section">
+        <h2 style="color:black; font-weight: bold;">Забудовники Києва</h2>
+        <div class="blocks-container">
+            <div onclick="window.open('https:/lun.ua/v2/go?placement=developer_page&company_id=409&event_category=view_developer')">
+                <div class="info-block color-1">
+                    <img src="https://img.lunstatic.net/company-premium/1358.svg" alt="Sample Image">
+                    <p>Креатор-Буд</p>
+                    <p><span>2 будинки здано</span></p>
+                    <p><span>9 будинків в процесі</span></p>
+                </div>
+            </div>
+            <div onclick="window.open('https:/lun.ua/v2/go?placement=developer_page&company_id=156&event_category=view_developer')">
+                <div class="info-block color-2">
+                    <img src="https://img.lunstatic.net/company-premium/1484.svg" alt="Sample Image">
+                    <p>Інтеграл-Буд</p>
+                    <p><span>79 будинки здано</span></p>
+                    <p><span>18 будинків в процесі</span></p>
+                </div>
+            </div>
+            <div onclick="window.open('https:/lun.ua/v2/go?placement=developer_page&company_id=529&event_category=view_developer')">
+                <div class="info-block color-3">
+                    <img src="https://img.lunstatic.net/company-premium/1945.svg" alt="Sample Image">
+                    <p>Креатор-Буд</p>
+                    <p><span>9 будинки здано</span></p>
+                    <p><span>8 будинків в процесі</span></p>
+                </div>
+            </div>
+            <div onclick="window.open('https:/lun.ua/v2/go?placement=developer_page&company_id=102&event_category=view_developer')">
+                <div class="info-block color-4">
+                    <img src="https://img.lunstatic.net/company-premium/2397.svg" alt="Sample Image">
+                    <p>Креатор-Буд</p>
+                    <p><span>26 будинки здано</span></p>
+                    <p><span>4 будинків в процесі</span></p>
+                </div>
+            </div>
+            <div onclick="window.open('https:/lun.ua/v2/go?placement=developer_page&company_id=422&event_category=view_developer')">
+                <div class="info-block color-5">
+                    <img src="https://img.lunstatic.net/company-premium/1255.svg" alt="Sample Image">
+                    <p>Креатор-Буд</p>
+                    <p><span>17 будинки здано</span></p>
+                    <p><span>13 будинків в процесі</span></p>
+                </div>
+            </div>
+        </div>  
+        </section>
+
+        <section class="real-estate-statistics">
+            <h2 class="statistics-title">Статистика нерухомості</h2>
+            <div class="statistics-grid">
+                <div class="statistics-block">
+                    <div class="city-header">
+                        <span class="city-name">Київ</span>
+                        <img src="Pictures/Logo.png" alt="Logo" class="logo">
+                    </div>
+                    <p class="statistics-date">Жовтень 2024</p>
+                    <div class="price-info">
+                        <div class="info-group">
+                            <span class="secondary-text">Середня</span>
+                            <span class="secondary-text">мінімальна</span>
+                        </div>
+                        <div class="info-group">
+                            <span>53 500</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+13.8%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="statistics-block">
+                    <div class="city-header">
+                        <span class="city-name">Львів</span>
+                        <img src="Pictures/Logo.png" alt="Logo" class="logo">
+                    </div>
+                    <p class="statistics-date">Жовтень 2024</p>
+                    <div class="price-info">
+                        <div class="info-group">
+                            <span class="secondary-text">Середня</span>
+                            <span class="secondary-text">мінімальна</span>
+                        </div>
+                        <div class="info-group">
+                            <span>57 000</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+18.5%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="statistics-block">
+                    <div class="city-header">
+                        <span class="city-name">Одеса</span>
+                        <img src="Pictures/Logo.png" alt="Logo" class="logo">
+                    </div>
+                    <p class="statistics-date">Жовтень 2024</p>
+                    <div class="price-info">
+                        <div class="info-group">
+                            <span class="secondary-text">Середня</span>
+                            <span class="secondary-text">мінімальна</span>
+                        </div>
+                        <div class="info-group">
+                            <span>39 900</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+9%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="statistics-block">
+                    <div class="city-header">
+                        <span class="city-name">Івано-Франківськ</span>
+                        <img src="Pictures/Logo.png" alt="Logo" class="logo">
+                    </div>
+                    <p class="statistics-date">Жовтень 2024</p>
+                    <div class="price-info">
+                        <div class="info-group">
+                            <span class="secondary-text">Середня</span>
+                            <span class="secondary-text">мінімальна</span>
+                        </div>
+                        <div class="info-group">
+                            <span>33 500</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+24.1%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-class-block">
+                        <div class="class-info">
+                            <span>Економ</span>
+                        <div class="info-group">
+                            <span>41 500</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+13.4%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                        </div>
+                        <div class="class-info">
+                            <span>Комфорт</span>
+                        <div class="info-group">
+                            <span>43 300</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+14.6%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                        </div>
+                        <div class="class-info">
+                            <span>Бізнес</span>
+                        <div class="info-group">
+                            <span>70 000</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+15.3%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                        </div>
+                        <div class="class-info">
+                            <span>Преміум</span>
+                        <div class="info-group">
+                            <span>129 000</span>
+                            <span class="secondary-text">грн/м<sup>2</sup></span>
+                        </div>
+                        <div class="info-group">
+                            <div class="price-change-block">+12.2%</div>
+                            <span class="secondary-text">з 10.2023</span>
+                        </div>
+                        </div>          
+                </div>
+        
+                <div class="property-class-block">
+                    <div class="class-info">
+                        <span>Економ</span>
+                    <div class="info-group">
+                        <span>36 100</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+5.6%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Комфорт</span>
+                    <div class="info-group">
+                        <span>47 700</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+23.6%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Бізнес</span>
+                    <div class="info-group">
+                        <span>62 100</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+21.1%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Преміум</span>
+                    <div class="info-group">
+                        <span>90 700</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+12.4%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                </div>
+        
+                <div class="property-class-block">
+                    <div class="class-info">
+                        <span>Економ</span>
+                    <div class="info-group">
+                        <span>32 100</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+2.9%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Комфорт</span>
+                    <div class="info-group">
+                        <span>34 200</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+7.5%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Бізнес</span>
+                    <div class="info-group">
+                        <span>42 600</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+15.1%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Преміум</span>
+                    <div class="info-group">
+                        <span>65 500</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+9%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                </div>
+        
+                <div class="property-class-block">
+                    <div class="class-info">
+                        <span>Економ</span>
+                    <div class="info-group">
+                        <span>26 600</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+34%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Комфорт</span>
+                    <div class="info-group">
+                        <span>32 400</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+27.6%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Бізнес</span>
+                    <div class="info-group">
+                        <span>36 400</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+21.7%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                    <div class="class-info">
+                        <span>Преміум</span>
+                    <div class="info-group">
+                        <span>60 000</span>
+                        <span class="secondary-text">грн/м<sup>2</sup></span>
+                    </div>
+                    <div class="info-group">
+                        <div class="price-change-block">+61.3%</div>
+                        <span class="secondary-text">з 10.2023</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="content">
+            <div>
+                <h2 style="color:black; font-weight: bold;">Додаткові ресурси</h2>
+                <p style="color:#ffffff; font-size:large">Сторінка з описом предметної області! <a style="color:rgb(178, 6, 184)"
+                        href="https://shafinsky.github.io/Shafinsky-IS-31_ShafinskyiY_subject-area/">ось за цим посиланням</a>.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="block-footer">
+            <div class="custom-block-footer" style="text-align: left; width:auto; padding-left: 50px; display:inline-table;">
+                <div class="icon">
+                <p>Контакти для зв'язку</p>
+                <table>
+                    <div class="contact-info">
+                        <tr>
+                            <td><img src="Pictures/email_icon.png" alt="Mail Icon"></td>
+                            <td><p>flatsfy@ukr.net</p></td>
+                        </tr>
+                    </div>
+                    <div class="contact-info">
+                        <tr>
+                            <td><img src="Pictures/phone_icon.png" alt="Telephone Icon"></td>
+                            <td><p>(044) 300-52-23</p></td>
+                        </tr>
+                    </div>
+                </table>
+                </div>
+            </div>
+            <div class="custom-block-footer">
+                <div class="icon">
+                    <p>Ми в соцмережах</p>
+                    <ul style=" list-style-type: none; display:flex">
+                        <li>
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <img src="Pictures/instagram_icon.png" alt="Instagram Icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/?locale=uk_UA" target="_blank">
+                                <img src="Pictures/facebook_icon.png" alt="Facebook Icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://web.telegram.org/a/" target="_blank">
+                                <img src="Pictures/telegram_icon.png" alt="Telegram Icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/" target="_blank">
+                                <img src="Pictures/youtube_icon.png" alt="Youtube Icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p style="font-size: small;">&copy; 2024 FLATSFY. Усі права захищено.</p>
+    </footer>
+    <script src="./scroll-to-top.js"></script>
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        const navMenu = document.querySelector('.custom_navigation');
+
+        toggleButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Pictures/icon-estate_agency.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <title>FLATSFY</title>
+</head>
+<body>
+    <header>
+        <nav class="custom_navigation">
+            <ul>
+                <li><img src="Pictures/Logo.png" alt="Logo" style="height: 70px;"></li>
+                <li><form action="">
+                    <input list="location" name="location" placeholder="Вибрати місто">
+                    <datalist id="location">
+                        <option value="Київ">
+                        <option value="Львів">
+                        <option value="Одеса">
+                        <option value="Вінниця">
+                        <option value="Харків">
+                        <option value="Чернігів">
+                    </datalist>
+                </form></li>
+                <li><a href="index.html">ГОЛОВНА</a></li>
+                <li><a href="rent.html">ОРЕНДА</a></li>
+                <li><a href="sale.html">ПРОДАЖ</a></li>
+                <li><a href="new_buildings.html">НОВОБУДОВИ</a></li>
+                <li><a href="cabinet.html">МІЙ FLATSFY</a></li>
+            </ul>
+            <button class="toggle-button">Menu</button>
+        </nav>
+    </header>
+    <main>
+        <div class="rental-type-selector">
+            <select name="rental-type">
+                <option value="flat-sale">Продаж квартир</option>
+                <option value="house-sale">Продаж будинків</option>
+            </select>
+        </div>
+    
+        <div class="search-filter-row">
+            <div class="search-icon-container">
+                <img src="Pictures/search_icon.jpg" alt="Search Icon" class="icon">
+                <input type="text" class="search-bar" placeholder="Пошук">
+            </div>
+            <div class="filter-icon-container">
+                <img src="Pictures/filter_icon.png" alt="Filter Icon" class="icon">
+                <button class="filter-button">Фільтри</button>
+            </div>
+        </div>
+    
+        <div class="filter-modal hidden">
+            <h3><i class="fas fa-sliders-h"></i> Основні фільтри</h3>
+            <!-- Ціна -->
+            <div class="filter-group">
+                <label><i class="fas fa-money-bill-wave"></i> Ціна</label>
+                <div class="price-range">
+                    <input type="number" placeholder="Від" id="price-from">
+                    <span>-</span>
+                    <input type="number" placeholder="До" id="price-to">
+                </div>
+                <div class="price-options">
+                    <button data-price="20000">до 20 000 грн</button>
+                    <button data-price="30000">до 30 000 грн</button>
+                    <button data-price="50000">до 50 000 грн</button>
+                    <button data-price="80000">до 80 000 грн</button>
+                </div>
+            </div>
+        
+            <!-- Без комісії -->
+            <div class="filter-group">
+                <label class="switch"><i class="fas fa-handshake"></i>
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                    Без комісії
+                </label>
+            </div>
+        
+            <!-- Кімнати -->
+            <div class="filter-group">
+                <label><i class="fas fa-bed"></i> Кімнати</label>
+                <div class="rooms-options">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5+</button>
+                </div>
+            </div>
+        
+            <h3><i class="fas fa-star"></i> Суперфільтри</h3>
+            <!-- Ремонт -->
+            <div class="filter-group">
+                <label><i class="fas fa-paint-roller"></i> Ремонт</label>
+                <div class="repair-options">
+                    <button>з ремонтом</button>
+                    <button>без ремонту</button>
+                </div>
+            </div>
+        
+            <h3><i class="fas fa-home"></i> Про квартиру</h3>
+            <!-- Загальна площа -->
+            <div class="filter-group">
+                <label><i class="fas fa-ruler-combined"></i> Загальна площа</label>
+                <div class="price-range">
+                    <input type="number" placeholder="Від" id="area-from">
+                    <span>-</span>
+                    <input type="number" placeholder="До" id="area-to">
+                </div>
+                <div class="price-options">
+                    <button data-area="25">від 25 м²</button>
+                    <button data-area="45">від 45 м²</button>
+                    <button data-area="65">від 65 м²</button>
+                    <button data-area="100">від 100 м²</button>
+                </div>
+            </div>
+        
+            <!-- Поверх -->
+            <div class="filter-group">
+                <label><i class="fas fa-building"></i> Поверх</label>
+                <div class="price-range">
+                    <input type="number" placeholder="Від" id="floor-from">
+                    <span>-</span>
+                    <input type="number" placeholder="До" id="floor-to">
+                </div>
+            </div>
+        
+            <h3><i class="fas fa-city"></i> Про будинок</h3>
+            <!-- Рік будівництва -->
+            <div class="filter-group">
+                <label><i class="fas fa-calendar-alt"></i> Рік будівництва</label>
+                <input type="number" placeholder="Наприклад: 1990">
+            </div>
+        
+            <!-- Поверховість будинку -->
+            <div class="filter-group">
+                <label><i class="fas fa-layer-group"></i> Поверховість будинку</label>
+                <div class="price-range">
+                    <input type="number" placeholder="Від" id="building-floor-from">
+                    <span>-</span>
+                    <input type="number" placeholder="До" id="building-floor-to">
+                </div>
+            </div>
+        
+            <!-- Опалення -->
+            <div class="filter-group">
+                <label><i class="fas fa-fire"></i> Опалення</label>
+                <div class="heating-options">
+                    <button>Централізоване</button>
+                    <button>Індивідуальне</button>
+                    <button>Без опалення</button>
+                </div>
+            </div>
+        
+            <button class="apply-filters"><i class="fas fa-check-circle"></i> Застосувати фільтри</button>
+        </div> 
+        
+
+        <div id="filters-display">
+            <div id="ads-container">
+            <div class="rental-object">
+                <div class="photo-gallery">
+                    <img src="https://market-images.lunstatic.net/lun-ua/360/360/images/1043132029.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/360/360/images/1043132047.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/360/360/images/1043132032.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043132034.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043132043.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1043132044.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043132033.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1043132042.webp" alt="Фото квартири" class="gallery-image">
+                    <button class="prev-photo">⟨</button>
+                    <button class="next-photo">⟩</button>
+                </div>
+    
+                <div class="rental-info">
+                    <p class="price">10 409 063 грн</p>
+                    <p class="address">вулиця Василя Симоненка, 5</p>
+                    <p class="location">ЖК Ліко-Град 3Теремки-2ГолосіївськийКиїв</p>
+                    <p class="highlights truncated">Пентхаус - дворівнева квартира Коли ви шукаєте нову оселю, важливо звертати увагу не тільки на площу, стан ремонту чи розташування. Іноді серце підказує більше, ніж будь-які технічні характеристики. Адже квартира – це місце, де створюються спогади та ваша історія. Чи відчуваєте ви тепло і затишок, коли уявляєте себе тут? Чи хочеться залишитися та створювати щасливі моменти в своєму житті? Пропонуємо до вашої уваги простору, затишну 4-кімнатну квартиру, що розташована за адресою м. Київ, вул. В. Симоненка, 5 в ЖК «Ліко-Град» “Ліко-Град” – це сучасний, комфортабельний та повноцінний житловий масив Києва в Голосієвському районі столиці. Архітектура комплексу: приємні на вигляд фасади; якісні, екологічні будівельні матеріали; Перебування у “Ліко-Граді” – це життя європейського рівня у сьогоднішньому Києві. що створює впевнене відчуття “міста у місті”. Особливості квартири: • Простора тераса оздоблена плиткою, кованою решіткою та меблями з ротангу — ідеальне місце для вечорів з друзями та барбекю. • Тепла підлога для вашого комфорту. • Електричний камін для затишних вечорів • В кімнатах телевізори • У вітальні піаніно • Великі шафи-купе у коридорах на 1 та 2 поверсі, в кімнатах шафи, для зберігання речей та простора кладова при вході і невеличка під сходами • І ванна, і душ — жодних компромісів між зручністю та вибором. Ціна 250 000 у.о. Без % МЛС продаж Можу ще довго розповідати.Але ж краще один раз побачити Фото квартири не передають того, настільки вона простора та затишна.Перевірте самі! Відчуйте її простір.Власними очима оцініть краєвид з тераси. Тому запрошую</p>
+                          <div class="features-list">
+                            <div class="feature-item">
+                                <img src="Pictures/rooms_icon.png" alt="Кімнати">
+                                <span>4 кімнати</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/repair_icon.png" alt="Ремонт">
+                                <span>з ремонтом</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/area_icon.png" alt="Площа">
+                                <span>190 / 123 / 56 м²</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/building_icon.png" alt="Будинок">
+                                <span>монолітно-каркасний</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/floor_icon.png" alt="Поверх">
+                                <span>поверх 16</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/year_icon.png" alt="Рік">
+                                <span>2013 рік</span>
+                            </div>
+                        </div>
+                    <button class="details-button">Детальніше</button>
+                </div>
+            </div>
+            <div class="rental-object">
+                <div class="photo-gallery">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1040897003.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1040897005.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1040897008.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1040897009.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1040897011.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1040897004.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043050612.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1040897006.webp" alt="Фото квартири" class="gallery-image">
+                    <button class="prev-photo">⟨</button>
+                    <button class="next-photo">⟩</button>
+                </div>
+    
+                <div class="rental-info">
+                    <p class="price">2 789 629 грн</p>
+                    <p class="address">Голосіївський проспект, 91</p>
+                    <p class="location">ГолосіївГолосіївськийКиїв</p>
+                    <p class="highlights truncated">Своя квартира зі свіжим ремонтом, новими меблями, сантехнікою, апаратурою. Ідеальне місце для життя в одному з найкращим районів Києва - Голосіївському. Екологічний, інфраструктурно розвинутий масив зі школами, садочками, магазинами, аптеками, кінотеатром і кавярнями. Через дорогу - Голосіївський ліс, велодоріжки, дитячі і спортивні майданчики в парку. Перед вікнами - зелений просторий затишний двір. В 10 хвилинах пішки - ботанічний сад Аграрного Університету і розгалужені маршрути пішохідних екостежок. Квартира двокімнатна з заскляним балконом, кухня-студія з новим гарнітуром - фактурні фасади прихованого відкриття, замінені лічильники, світлодіодне дизайнерське освітлення, керамограніт і зносостійкий ламінат, інсталяція Geberit. В кімнатах - новий кутовий диван замовлений в Європі, шафа купе, двоспальне ліжко, телевізор, комод, обідній стіл, барні стільці на видовому балконі. Квартира більше 3 років у власності, з мінімальними податками, вже готова до угоди і швидкого заселення. Готові на сертифікат, чи безготівковий розрахунок Ціна 67 000 доларів</p>
+                          <div class="features-list">
+                            <div class="feature-item">
+                                <img src="Pictures/rooms_icon.png" alt="Кімнати">
+                                <span>2 кімнати</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/repair_icon.png" alt="Ремонт">
+                                <span>з ремонтом</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/area_icon.png" alt="Площа">
+                                <span>44 / 28 / 6 м²</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/building_icon.png" alt="Будинок">
+                                <span>цегляний-будинок</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/floor_icon.png" alt="Поверх">
+                                <span>поверх 8</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/year_icon.png" alt="Рік">
+                                <span>1963 рік</span>
+                            </div>
+                        </div>
+                    <button class="details-button">Детальніше</button>
+                </div>
+            </div>
+            <div class="rental-object">
+                <div class="photo-gallery">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043299957.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043299953.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043299951.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043299941.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/618/412/images/1043299938.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/618/412/images/1043299956.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/446/297/images/1043299947.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/274/412/images/1043299949.jpg" alt="Фото квартири" class="gallery-image">
+                    <button class="prev-photo">⟨</button>
+                    <button class="next-photo">⟩</button>
+                </div>
+    
+                <div class="rental-info">
+                    <p class="price">12 699 057 грн</p>
+                    <p class="address">Університетська вулиця, 17-А</p>
+                    <p class="location">ЖК Солом'янськийОлександрівська СлобідкаСолом’янськийКиїв</p>
+                    <p class="highlights truncated">ЖК Соломянський - це 3х секційний монолітно-каркасний будинок преміум класу з підземним паркінгом і закритою територією, що охороняється, розташований на земельних ділянках по вул.Університетській 23,25,27 в Соломянському р-ні міста Києва. ЖК Соломянський має власну територію 0,3 га, підземний паркінг на 46 машиномісць, а також гостьове паркування на 8 місць; 3 власні котельні; ліфти Schindler, які піднімаються з паркінгу; відеоспостереження , систему очистки та помʼякшення води та цілодобову охорону. ЖК Соломянський побудований з високоякісних матеріалів: стіни з керамічного блоку 250мм, утеплення мінеральною ватою 150мм, фасад будинку з силіконовою штукатуркою Baumit, по тротуарах та прибудинковій території всі доріжки та бордюри викладені з тротуарної плитки; вікна в будинку-панорамні, встановлені датчики руху в паркінгу та підїздах. Місця загального користування в ЖК з оздобленням, а територія з шикарним озелененням, освітленням, дитячим майданчиком, зоною для занять спортом, а також зоною відпочинку та барбекю. У ЖК підведені всі міські комунікації, облаштований асфальтований підїзд із тротуарами та озелененням. Будинок введено в експлуатацію! Присвоєно поштову адресу: Університетська 17-А. Для експлуатації ЖК створено власне ОСББ. В ЖК є власний генератор, котрий покриває потреби в електроенергіі на 100%. 3-и кімнатна квартира з дизайнерським ремонтом розташована в секції 3 на 2 поверсі. Загальна площа:108 м кв, Квартира обладнана: -спліт система кондиціонування Mitsubishi -прально-сушильна машинка Electrolux -духова шафа з фінкцією мікрохвиль Siemens -посудомийна машинка Siemens -варочна поверхня Siemens -холодильник Whirlpool -витяжка Franke -м’які меблі фабрики Delavega -корпусні меблі МДФ фарбований та Fenix -телевізори Samsung Qled -підігрів підлоги з терморегуляторами Devi з Wifi Продаж квартири можливий з машиномісцем в паркінгу. Вартість-20000$ (сімейне на 2авто-30000$)</p>
+                          <div class="features-list">
+                            <div class="feature-item">
+                                <img src="Pictures/rooms_icon.png" alt="Кімнати">
+                                <span>3 кімнати</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/repair_icon.png" alt="Ремонт">
+                                <span>з ремонтом</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/area_icon.png" alt="Площа">
+                                <span>106 / 53 / 26 м²</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/building_icon.png" alt="Будинок">
+                                <span>монолітно-каркасний</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/floor_icon.png" alt="Поверх">
+                                <span>поверх 2</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/year_icon.png" alt="Рік">
+                                <span>2022 рік</span>
+                            </div>
+                        </div>
+                    <button class="details-button">Детальніше</button>
+                </div>
+            </div>
+
+            <div class="rental-object">
+                <div class="photo-gallery">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1036685254.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/431/307/images/1036685253.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/441/301/images/1036685244.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/497/355/images/1036685246.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/618/412/images/1036685247.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/446/297/images/1036685240.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/430/307/images/1036685243.jpg" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/446/297/images/1036685252.jpg" alt="Фото квартири" class="gallery-image">
+                    <button class="prev-photo">⟨</button>
+                    <button class="next-photo">⟩</button>
+                </div>
+    
+                <div class="rental-info">
+                    <p class="price">13 323 600 грн</p>
+                    <p class="address">Університетська вулиця, 17-А</p>
+                    <p class="location">ЖК Солом'янськийОлександрівська СлобідкаСолом’янськийКиїв</p>
+                    <p class="highlights truncated">3-и кімнатна квартира з дизайнерським ремонтом розташована в секції 3 на 2 поверсі. Квартира обладнана: -спліт система кондиціонування Mitsubishi -прально-сушильна машинка Electrolux -духова шафа з фінкцією мікрохвиль Bosch -посудомийна машинка Bosch -варочна поверхня Bosch -холодильник Whirlpool -витяжка Franke -м’які меблі фабрики Delavega та Blanche -дитяче ліжко Blest -корпусні меблі МДФ фарбований -телевізори Samsung Qled -сантехніка Villeroy Boch Продаж квартири можливий з машиномісцем в паркінгу. Вартість-20000$ (сімейне на 2авто-30000$)</p>
+                          <div class="features-list">
+                            <div class="feature-item">
+                                <img src="Pictures/rooms_icon.png" alt="Кімнати">
+                                <span>3 кімнати</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/repair_icon.png" alt="Ремонт">
+                                <span>з ремонтом</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/area_icon.png" alt="Площа">
+                                <span>114 / 57 / 20 м²</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/building_icon.png" alt="Будинок">
+                                <span>цегляний-будинок</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/floor_icon.png" alt="Поверх">
+                                <span>поверх 2</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/year_icon.png" alt="Рік">
+                                <span>2023 рік</span>
+                            </div>
+                        </div>
+                    <button class="details-button">Детальніше</button>
+                </div>
+            </div>
+
+            <div class="rental-object">
+                <div class="photo-gallery">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1015668673.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1015668674.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1015668677.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1015668678.webp" alt="Фото квартири" class="gallery-image">
+                    <button class="prev-photo">⟨</button>
+                    <button class="next-photo">⟩</button>
+                </div>
+    
+                <div class="rental-info">
+                    <p class="price">66 576 364 грн</p>
+                    <p class="address">вулиця Михайла Грушевського, 9-А</p>
+                    <p class="location">ЖК вул. Грушевського, 9аПечерськПечерськийКиїв</p>
+                    <p class="highlights truncated">Продам квартиру в кращому будинку біля Маріїнського парку, та видом на Дніпро.простору кухня-студія, та 3 спальні з санвузлами, гардеробна кімната. Найкраща локація. Поруч ресторани та магазини.</p>
+                          <div class="features-list">
+                            <div class="feature-item">
+                                <img src="Pictures/rooms_icon.png" alt="Кімнати">
+                                <span>4 кімнати</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/repair_icon.png" alt="Ремонт">
+                                <span>без ремонту</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/area_icon.png" alt="Площа">
+                                <span>300 / 100 / 30 м²</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/building_icon.png" alt="Будинок">
+                                <span>монолітно-каркасний</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/floor_icon.png" alt="Поверх">
+                                <span>поверх 8</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/year_icon.png" alt="Рік">
+                                <span>2007 рік</span>
+                            </div>
+                        </div>
+                    <button class="details-button">Детальніше</button>
+                </div>
+            </div>
+
+            <div class="rental-object">
+                <div class="photo-gallery">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043119361.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043119340.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/360/360/images/1043079327.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043119342.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1043119358.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1043119346.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1043119348.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/600/995/images/1043119341.webp" alt="Фото квартири" class="gallery-image">
+                    <button class="prev-photo">⟨</button>
+                    <button class="next-photo">⟩</button>
+                </div>
+    
+                <div class="rental-info">
+                    <p class="price">20 609 944 грн</p>
+                    <p class="address">вулиця Саперне Поле, 5</p>
+                    <p class="location">ЖК Бульвар ФонтанівНижній ПечерськПечерськийКиїв</p>
+                    <p class="highlights truncated">Функциональная планировка: - три раздельные комнаты - кухня гостиная - две гардеробные комнаты - два санузла (душ и ванная). Ремонт выполнен из качественных и дорогостоящих материалов. В каждой комнате тёплые полы, кондиционеры. Вид из окон на фонтаны и внутренний двор. Комплекс премиум-уровня, своя большая закрытая и охраняемая территория с зеленной зоной, со своей собственной инфраструктурой. Концепция двор без машин - гарантия безопасности, все перемещение транспорта производится по подземному паркингу. Красивая аллея фонтанов, терраса общего пользования с лаундж-зоной и с мини-кухней, свой кинозал, комната переговоров, детский сад, баскетбольная и футбольная площадки, детские игровые площадки, ресторан, салон красоты, спортзал. Хорошо развита транспортная развязка - все необходимое в пешей доступности. Просмотр в удобное для Вас время.</p>
+                          <div class="features-list">
+                            <div class="feature-item">
+                                <img src="Pictures/rooms_icon.png" alt="Кімнати">
+                                <span>3 кімнати</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/repair_icon.png" alt="Ремонт">
+                                <span>з ремонтом</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/area_icon.png" alt="Площа">
+                                <span>127 / 60 / 30 м²</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/building_icon.png" alt="Будинок">
+                                <span>монолітно-каркасний</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/floor_icon.png" alt="Поверх">
+                                <span>поверх 7</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/year_icon.png" alt="Рік">
+                                <span>2019 рік</span>
+                            </div>
+                        </div>
+                    <button class="details-button">Детальніше</button>
+                </div>
+            </div>
+
+            <div class="rental-object">
+                <div class="photo-gallery">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481960.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481980.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481971.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481981.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481970.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481961.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481982.webp" alt="Фото квартири" class="gallery-image">
+                    <img src="https://market-images.lunstatic.net/lun-ua/995/600/images/1033481969.webp" alt="Фото квартири" class="gallery-image">
+                    <button class="prev-photo">⟨</button>
+                    <button class="next-photo">⟩</button>
+                </div>
+    
+                <div class="rental-info">
+                    <p class="price">12 633 271 грн</p>
+                    <p class="address">Берестейський проспект</p>
+                    <p class="location">ЖК Manhattan cityКиїв</p>
+                    <p class="highlights truncated">Виконаний дизайнерський ремонт у 2024 року у найпросторішій квартирі в ЖК Manhattan City, розташованому в Шевченківському районі, проспект Берестейський, 11. Квартира має дивовижний краєвид як на захід сонця вздовж проспекту, так і на центральну частину міста. Автономне електропостачання забезпечує безперебійну роботу ліфту, постачання води та освітлення всього комплексу Квартира повністю укомплектована технікою від преміальних європейських виробників та дизайнерськими італійськими меблями. Планування: • Кухня-вітальня • 3 ізольовані спальні кімнати • 2 окремі санвузли • Засклений балкон • Коридор Коридор: - Італійська шафа з підсвіткою, що створює стильний вигляд - Плитка з підігрівом - Декоративна штукатурка на стінах для неперевершеного інтерєру. - Відеодомофон для додаткової безпеки. Кухня та вітальня: - Кухня преміального італійського бренду Scavolini - Преміальна німецька побутова техніка AEG (духова шафа, вбудована мікрохвильова піч, кавоварка, підігрівачі посуду, індукційна варильна поверхня, холодильник, морозильна камера та винна шафа) - Плитка з підігрівом на підлозі та підвіконнях, що створює теплу атмосферу в холодну пору року - Кондиціонер з функцією охолодження та обігріву - Декоративна штукатурка з різнокольоровою підсвіткою - Двері прихованого монтажу для елегантного вигляду - Великий кутовий диван та телевізор LG з діагоналлю 70 дюймів. - Дизайнерський італійський стіл, за яким можуть комфортно розміститись 8 людей. Господарська спальня: - Велика шафа - Декоративний елемент «Марс» з підсвіткою над ліжком - Красиве велике (180х200) ліжко з преміальним матрацом Dorelan - Штори блекаут для комфортного сну - Плитка з підігрівом - Кондиціонер з функцією охолодження та обігріву - Кольорова LED підсвітка по периметру, яка створює затишну атмосферу. Друга спальня: - Красиве (160х200) ліжко з преміальним матрацом Dorelan - Штори блекаут для комфортного сну - Плитка з підігрівом - Кондиціонер з функцією охолодження та обігріву -Дизайнерскій італійській робочий стіл. Третя спальня: - Красиве (160х200) ліжко з преміальним матрацом Dorelan - Штори блекаут для комфортного сну - Плитка з підігрівом - Кондиціонер з функцією охолодження та обігріву - Вихід на засклений балкон де є комфортне крісло для додаткового відпочинку. -За рахунок двох склопакетів (між спальнею та балконом та балконом і вулицею) в цій кімнаті взагалі немає відчуття перебування в центрі міста) Великий санвузол: - Кутова ванна - Велике дзеркало з підсвіткою - Бойлер обємом 120 літрів, що забезпечує постійний доступ до гарячої води Другий санвузол: - Душова кабіна з вбудованим змішувачем з термостатом та зонованою підсвіткою - Італійська сантехніка та дзеркало з підсвіткою - Підлога з підігрівом, включаючи душ - Пральна машина та сушильна машина Квартира має теплу підлогу у вітальні, кухні та обох санвузлах, що додає комфорту та затишку. У кожній кімнаті встановлено кондиціонери для регулювання температури. Комплекс включає 2 поверхи комерційних приміщень із супермаркетом, Новою Поштою та кавярнями. Також є 3 поверхи паркінгу, консьєрж-сервіс та велика закрита територія на 5-му поверсі - дитячий майданчик, що забезпечує безпеку та комфорт мешканцям з дітьми. Є можливість придбати парко-місце. Пишіть у Telegram для додаткових питань та домовленості про перегляд!</p>
+                          <div class="features-list">
+                            <div class="feature-item">
+                                <img src="Pictures/rooms_icon.png" alt="Кімнати">
+                                <span>4 кімнати</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/repair_icon.png" alt="Ремонт">
+                                <span>з ремонтом</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/area_icon.png" alt="Площа">
+                                <span>117 / 58 / 36 м²</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/building_icon.png" alt="Будинок">
+                                <span>цегляний-будинок</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/floor_icon.png" alt="Поверх">
+                                <span>поверх 11</span>
+                            </div>
+                            <div class="feature-item">
+                                <img src="Pictures/year_icon.png" alt="Рік">
+                                <span>2018 рік</span>
+                            </div>
+                        </div>
+                    <button class="details-button">Детальніше</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <div class="block-footer">
+            <div class="custom-block-footer" style="text-align: left; width:auto; padding-left: 50px; display:inline-table;">
+                <div class="icon">
+                <p>Контакти для зв'язку</p>
+                <table>
+                    <div class="contact-info">
+                        <tr>
+                            <td><img src="Pictures/email_icon.png" alt="Mail Icon"></td>
+                            <td><p>flatsfy@ukr.net</p></td>
+                        </tr>
+                    </div>
+                    <div class="contact-info">
+                        <tr>
+                            <td><img src="Pictures/phone_icon.png" alt="Telephone Icon"></td>
+                            <td><p>(044) 300-52-23</p></td>
+                        </tr>
+                    </div>
+                </table>
+                </div>
+            </div>
+            <div class="custom-block-footer">
+                <div class="icon">
+                    <p>Ми в соцмережах</p>
+                    <ul style=" list-style-type: none; display:flex">
+                        <li>
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <img src="Pictures/instagram_icon.png" alt="Instagram Icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/?locale=uk_UA" target="_blank">
+                                <img src="Pictures/facebook_icon.png" alt="Facebook Icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://web.telegram.org/a/" target="_blank">
+                                <img src="Pictures/telegram_icon.png" alt="Telegram Icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/" target="_blank">
+                                <img src="Pictures/youtube_icon.png" alt="Youtube Icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p style="font-size: small;">&copy; 2024 FLATSFY. Усі права захищено.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="galleryimage.js"></script>
+    <script src="scroll-to-top.js"></script>
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        const navMenu = document.querySelector('.custom_navigation');
+    
+        toggleButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
