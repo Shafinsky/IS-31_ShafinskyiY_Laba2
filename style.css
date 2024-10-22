@@ -933,3 +933,84 @@ input:checked + .slider {
         gap: 5px;
     }
 }
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1500px;
+        justify-content: space-between;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr); /* Три колонки на десктопі */
+    }
+
+    .statistics-grid {
+        grid-template-columns: repeat(4, 1fr); /* Чотири колонки для статистики */
+    }
+
+    .info-block {
+        min-width: 300px;
+    }
+
+    .rental-object {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr); /* Дві колонки для новин */
+    }
+
+    .statistics-grid {
+        grid-template-columns: repeat(2, 1fr); /* Дві колонки для статистики */
+    }
+
+    .rental-object {
+        flex-direction: column;
+    }
+
+    .photo-gallery {
+        height: 200px; /* Зменшена галерея на планшеті */
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    nav.custom_navigation ul {
+        display: none; /* Приховуємо навігаційне меню */
+    }
+
+    .toggle-button {
+        display: block;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr; /* Одна колонка для новин */
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr; /* Одна колонка для статистики */
+    }
+
+    .rental-object {
+        flex-direction: column;
+    }
+
+    .photo-gallery {
+        height: 150px; /* Зменшена галерея на мобільних пристроях */
+    }
+
+    .info-block {
+        min-width: 100%;
+    }
+}
